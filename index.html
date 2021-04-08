@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>code editor</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="code-area">
+        <textarea id="htmlCode" placeholder="HTML Code" oninput="showPreview()"></textarea>
+        <textarea id="cssCode" placeholder="CSS Code" oninput="showPreview()"></textarea>
+        <textarea id="jsCode" placeholder="JavaScript Code" oninput="showPreview()"></textarea>
+    </div>
+    <div class="preview-area">
+        <iframe id="preview-window"></iframe>
+    </div>
+    <script>
+        function showPreview() {
+            var htmlCode = document.getElementById("htmlCode").value;
+            var cssCode = "";
+            var jsCode = "" + document.getElementById("jsCode").value + "";
+            var frame = document.getElementById("preview-window").contentWindow.document;
+            frame.open();
+            frame.write(htmlCode + cssCode + jsCode);
+            frame.close();
+        }
+    </script>
+</body>
+
+</html>
